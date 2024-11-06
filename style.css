@@ -1,0 +1,86 @@
+*{
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    margin: 0;
+    padding: 0;         
+    background: #000000;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;               
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5vh 0 0.5vh;     
+}
+main h4{
+    color: aliceblue;
+    font-size: 3em;
+    text-align: center;
+    cursor: pointer;
+}
+main h4:hover{
+    font-size: 3.01em;
+    text-shadow: 0px 10px 30px rgba(255, 255, 255, 0.8);
+}
+main video{
+    filter: url(#blur-and-saturate); /* Apply the SVG filter */
+    border-radius: 10px;
+    width: 50vw;
+}
+main .navi{
+    width: 10vw;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2vh;
+    align-items: center;
+    z-index: 10;
+}
+.navi button{
+    padding: 1vw;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    background-color: #888888;
+}
+.navi button:hover{
+    background-color: #d6d6d6;
+}
+.navi .fa-solid{
+    font-size: 1em;
+    cursor: pointer;
+    color: #000000;
+}
+.para{
+    padding: 20px 50px;  
+}
+.para p{
+    font-size: 1em;
+    color: aliceblue;
+}
+@media only screen and (max-width: 600px){
+    main h4{
+        font-size: 2em;
+    }
+    main .navi{
+        width: 30vw;
+        margin-top: 2vh;
+    }
+    .navi button{
+        padding: 3vw;
+    }
+    .para{
+        padding: 20px 30px;  
+    }
+    main video{
+        width: 90vw;
+    }
+}

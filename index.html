@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>My play list</title>
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Forum&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/3e6ef2b5ef.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <svg width="0" height="0">
+        <filter id="blur-and-saturate" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="80" result="blurred" />
+            <feColorMatrix type="saturate" in="blurred" values="5" />
+            <feComposite in="SourceGraphic" operator="over" />
+        </filter>
+    </svg>
+    <nav></nav>
+    <main>
+        <h4>My Play List</h4>
+        <video id="video" src="assets/videos/youtube_u83VdXAVq08_1920x1080_h264.mp4" controls loop autoplay></video>
+        <span class="navi">
+            <button id="btn-left"><i class="fa-solid fa-arrow-left"></i></button>
+            <!--<button><i class="fa-solid fa-play"></i></button>-->
+            <button id="btn-toggle-play"><i class="fa-solid fa-pause"></i></button>
+            <button id="btn-right"><i class="fa-solid fa-arrow-right"></i></button>
+        </span>
+        <div class="para">
+            <p>
+                "My Playlist" is a fun, interactive web application that allows users to create,
+                 manage, and share their personalized music playlists. Users can search for songs, add
+                  them to their playlists, and organize their music by genre, mood, or occasion.
+                   The app features a simple, user-friendly interface, allowing users to easily listen
+                    to their favorite tracks, discover new music, and share their custom playlists with
+                     friends. It's a perfect tool for music lovers to stay organized and explore new sounds!</p>
+        </div>
+    </main>
+    <footer></footer>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
