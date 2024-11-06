@@ -31,10 +31,11 @@ main h4:hover{
     font-size: 3.01em;
     text-shadow: 0px 10px 30px rgba(255, 255, 255, 0.8);
 }
-main video{
+main iframe{
     filter: url(#blur-and-saturate); /* Apply the SVG filter */
     border-radius: 10px;
     width: 50vw;
+    height: 28.125vw;
 }
 main .navi{
     width: 10vw;
@@ -71,16 +72,17 @@ main .navi{
         font-size: 2em;
     }
     main .navi{
-        width: 30vw;
+        width: 40vw;
         margin-top: 2vh;
     }
     .navi button{
-        padding: 3vw;
+        padding: 3vw 4vw;
     }
     .para{
         padding: 20px 30px;  
     }
-    main video{
+    main iframe{
         width: 90vw;
+        height: 50.625vw;
     }
 }

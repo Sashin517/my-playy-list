@@ -1,18 +1,30 @@
 const videos = [
-    "assets/videos/7320512775380405536.mp4",
-    "assets/videos/CB4204CD4B67A6D2367E40B3690882BD_video_dashinit.mp4",
-    "assets/videos/MONKEY.mp4",
-    "assets/videos/youtube_u83VdXAVq08_1920x1080_h264.mp4"
+    "https://www.youtube.com/embed/bT3XOzunPQY?si=qmgokzn89wiOmRvu",
+    "https://www.youtube.com/embed/qSEeQXzFspk?si=eQtC5CiniI2Sre_t",
+    "https://www.youtube.com/embed/lBHTwcqTdLI?si=X1euoofZUDCp5r3h",
+    "https://www.youtube.com/embed/yc-vNb4zLkc?si=OwYWL6RP-bFS6OXn",
+    "https://www.youtube.com/embed/AMP5pIcrq4I?si=UTp1pfflTZpx8IqQ"
 ]
 
 let currentIndex = 0;
+let player;
+let isPlaying = false;
 
 // Select the buttons by their IDs
-const video = document.getElementById("video");
+const video = document.getElementById("youtube-player");
 const btnLeft = document.getElementById("btn-left");
 const toggleButton = document.getElementById("btn-toggle-play");
 const icon = toggleButton.querySelector("i"); 
 const btnRight = document.getElementById("btn-right");
+
+// This function initializes the player after the API is ready
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('youtube-player', {
+        events: {
+            onReady: onPlayerReady
+        }
+    });
+}
 
 function loadVideo(index) {
     video.src = videos[index]; // Update the video source
@@ -20,14 +32,17 @@ function loadVideo(index) {
 }
 
 //toggle button
+
 toggleButton.addEventListener("click", () => {
-    if (video.paused) {
-        video.play(); // Play the video
-        icon.classList.replace("fa-play", "fa-pause"); // Change icon to "pause"
+    if (isPlaying) {
+        player.pauseVideo();
+        icon.classList.replace("fa-pause", "fa-play");
     } else {
-        video.pause(); // Pause the video
-        icon.classList.replace("fa-pause", "fa-play"); // Change icon to "play"
+        player.playVideo();
+        icon.classList.replace("fa-play", "fa-pause");
     }
+    isPlaying = !isPlaying;
+    alert("clicked")
 });
 
 // Add click event listeners to each button
