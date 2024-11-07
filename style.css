@@ -46,23 +46,38 @@ main .navi{
     z-index: 10;
 }
 .navi button{
-    padding: 12px 14.13px;
+    padding: 15px;
     border-radius: 50%;
     border: none;
     outline: none;
     cursor: pointer;
     background-color: #8c8c8c;
     color: none;
+    width: 50px;
+    height: 50px;
     text-decoration: none;
 }
 .navi button:hover{
     background-color: #f5f5f5;
+    color: none;
 }
-.navi .fa-solid{
-    font-size: 1em;
+.navi {
     cursor: pointer;
     color: #000000;
 }
+
+.navi button i {
+	font-size: 1.5em;
+}
+
+.previous-btn-icon, .next-btn-icon {
+	padding: 0 1.25px;
+}
+
+.pause-btn-icon {
+	padding: 0 3.75px;
+}
+
 .para{
     padding: 20px 50px;  
 }
@@ -82,7 +97,10 @@ main .navi{
         margin-top: 2vh;
     }
     .navi button{
-        padding: 16px 18.13px;
+        padding: 3vw 4vw;
+    }
+    #btn-toggle-play{
+        padding: 3vw 4.4vw;
     }
     .para{
         padding: 20px 30px;  
