@@ -13,17 +13,17 @@
     <script src="https://kit.fontawesome.com/3e6ef2b5ef.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <svg width="0" height="0">
-        <filter id="blur-and-saturate" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="80" result="blurred" />
-            <feColorMatrix type="saturate" in="blurred" values="5" />
-            <feComposite in="SourceGraphic" operator="over" />
-        </filter>
-    </svg>
     <nav></nav>
     <main>
         <h4>My Play List</h4>
         <iframe id="youtube-player" src="https://www.youtube.com/embed/bT3XOzunPQY?si=qmgokzn89wiOmRvu" autoplay title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <svg width="0" height="0">
+            <filter id="blur-and-saturate" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="80" result="blurred" />
+                <feColorMatrix type="saturate" in="blurred" values="5" />
+                <feComposite in="SourceGraphic" operator="over" />
+            </filter>
+        </svg>
         <span class="navi">
             <button id="btn-left"><i class="fa-solid fa-arrow-left"></i></button>
             <!--<button><i class="fa-solid fa-play"></i></button>-->
