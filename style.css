@@ -46,7 +46,7 @@ main .navi{
     z-index: 10;
 }
 .navi button{
-    padding: 2vh 1.15vw;
+    padding: 12px 14.13px;
     border-radius: 50%;
     border: none;
     outline: none;
@@ -55,12 +55,8 @@ main .navi{
     color: none;
     text-decoration: none;
 }
-#btn-toggle-play{
-    padding: 2vh 1.3vw;
-}
 .navi button:hover{
     background-color: #f5f5f5;
-    color: none;
 }
 .navi .fa-solid{
     font-size: 1em;
@@ -86,10 +82,7 @@ main .navi{
         margin-top: 2vh;
     }
     .navi button{
-        padding: 3vw 4vw;
-    }
-    #btn-toggle-play{
-        padding: 3vw 4.4vw;
+        padding: 16px 18.13px;
     }
     .para{
         padding: 20px 30px;  
