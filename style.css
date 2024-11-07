@@ -71,6 +71,9 @@ main .navi{
     main h4{
         font-size: 2em;
     }
+    main h4:hover{
+        font-size: 2.01em;
+    }
     main .navi{
         width: 40vw;
         margin-top: 2vh;
