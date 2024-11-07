@@ -1,6 +1,6 @@
 let currentIndex = 0;
 let player;
-let isPlaying = true;
+let isPlaying = false;
 
 // Select the buttons by their IDs
 const video = document.getElementById("youtube-player");
