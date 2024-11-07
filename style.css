@@ -38,11 +38,7 @@ main iframe{
     height: 28.125vw;
 }
 main .navi{
-    width: 10vw;
-    display: flex;
-    justify-content: space-between;
     margin-top: 2vh;
-    align-items: center;
     z-index: 10;
 }
 .navi button{
@@ -91,10 +87,6 @@ main .navi{
     }
     main h4:hover{
         font-size: 1.81em;
-    }
-    main .navi{
-        width: 40vw;
-        margin-top: 2vh;
     }
     .para{
         padding: 20px 30px;  
