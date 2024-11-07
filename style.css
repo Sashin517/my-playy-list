@@ -47,13 +47,20 @@ main .navi{
 }
 .navi button{
     padding: 2vh 1.15vw;
-    border: none;
     border-radius: 50%;
+    border: none;
+    outline: none;
     cursor: pointer;
-    background-color: #888888;
+    background-color: #8c8c8c;
+    color: none;
+    text-decoration: none;
+}
+#btn-toggle-play{
+    padding: 2vh 1.3vw;
 }
 .navi button:hover{
     background-color: #d6d6d6;
+    color: none;
 }
 .navi .fa-solid{
     font-size: 1em;
@@ -80,6 +87,9 @@ main .navi{
     }
     .navi button{
         padding: 3vw 4vw;
+    }
+    #btn-toggle-play{
+        padding: 3vw 4.4vw;
     }
     .para{
         padding: 20px 30px;  
