@@ -14,7 +14,7 @@ function onYouTubeIframeAPIReady() {
     player = new YT.Player("player", {
         height:500,
         width:900,
-        videoId: "hI9HQfCAw64",
+        videoId: "ajGo94h0JxE",
         playerVars:{
             playerinline: 1,
             autoplay:1,
@@ -40,7 +40,7 @@ function onPLayerStateChange(event){
 }
 
 const videoIndexes = [
-    "hI9HQfCAw64",
+    "ajGo94h0JxE",
     "oqcRmw1YYhU",
     "sBNr4iP57vI",
     "yc-vNb4zLkc",
