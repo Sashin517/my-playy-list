@@ -1,14 +1,6 @@
-const videos = [
-    "https://www.youtube.com/embed/bT3XOzunPQY?si=qmgokzn89wiOmRvu",
-    "https://www.youtube.com/embed/qSEeQXzFspk?si=eQtC5CiniI2Sre_t",
-    "https://www.youtube.com/embed/lBHTwcqTdLI?si=X1euoofZUDCp5r3h",
-    "https://www.youtube.com/embed/yc-vNb4zLkc?si=OwYWL6RP-bFS6OXn",
-    "https://www.youtube.com/embed/AMP5pIcrq4I?si=UTp1pfflTZpx8IqQ"
-]
-
 let currentIndex = 0;
 let player;
-let isPlaying = false;
+let isPlaying = true;
 
 // Select the buttons by their IDs
 const video = document.getElementById("youtube-player");
@@ -19,41 +11,71 @@ const btnRight = document.getElementById("btn-right");
 
 // This function initializes the player after the API is ready
 function onYouTubeIframeAPIReady() {
-    player = new YT.Player('youtube-player', {
+    player = new YT.Player("player", {
+        height:500,
+        width:900,
+        videoId: "hI9HQfCAw64",
+        playerVars:{
+            playerinline: 1,
+            autoplay:1,
+            controls:0
+        },
         events: {
-            onReady: onPlayerReady
+            onReady: onPlayerReady,
+            onStateChange:onPLayerStateChange
         }
     });
 }
 
+function onPlayerReady(){
+    console.log("ready")
+}
+
+var done = false;
+
+function onPLayerStateChange(event){
+    if(event.data == YT.PlayerState.PLAYING && !done){
+        done = true;
+    }
+}
+
+const videoIndexes = [
+    "hI9HQfCAw64",
+    "ZFlpVBFSEis",
+    "sBNr4iP57vI",
+    "yc-vNb4zLkc",
+    "6eyf9MNJvrg"
+]
+
 function loadVideo(index) {
-    video.src = videos[index]; // Update the video source
-    video.play(); // Play the video automatically
+    player.cueVideoById({videoId:videoIndexes[index]}); // Update the video source
+    player.playVideo(); // Play the video automatically
 }
 
 //toggle button
 
 toggleButton.addEventListener("click", () => {
     if (isPlaying) {
-        player.pauseVideo();
         icon.classList.replace("fa-pause", "fa-play");
+        player.pauseVideo();
+        isPlaying = !isPlaying;
     } else {
-        player.playVideo();
         icon.classList.replace("fa-play", "fa-pause");
+        player.playVideo();
+        isPlaying = !isPlaying;
     }
-    isPlaying = !isPlaying;
-    alert("clicked")
+    
 });
 
 // Add click event listeners to each button
 btnLeft.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + videos.length) % videos.length; // Move to previous video
+    currentIndex = (currentIndex - 1 + videoIndexes.length) % videoIndexes.length; // Move to previous video
     loadVideo(currentIndex); // Load the new video
 });
 
 
 
 btnRight.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1 + videos.length) % videos.length; // Move to previous video
+    currentIndex = (currentIndex + 1 + videoIndexes.length) % videoIndexes.length; // Move to previous video
     loadVideo(currentIndex); // Load the new video
 });
