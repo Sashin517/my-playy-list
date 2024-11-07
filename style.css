@@ -96,12 +96,6 @@ main .navi{
         width: 40vw;
         margin-top: 2vh;
     }
-    .navi button{
-        padding: 3vw 4vw;
-    }
-    #btn-toggle-play{
-        padding: 3vw 4.4vw;
-    }
     .para{
         padding: 20px 30px;  
     }
