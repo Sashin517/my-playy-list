@@ -42,11 +42,7 @@ function onPLayerStateChange(event){
 
 let videoIndexes = [
     "u83VdXAVq08",
-    "ajGo94h0JxE",
-    "oqcRmw1YYhU",
-    "sBNr4iP57vI",
-    "yc-vNb4zLkc",
-    "6eyf9MNJvrg"
+    "ajGo94h0JxE"
 ]
 
 form.addEventListener("submit", (e)=>{
