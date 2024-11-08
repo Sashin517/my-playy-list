@@ -59,12 +59,11 @@ form.addEventListener("submit", (e)=>{
     }
 });
 
-function getUrlId(url) {
-    const regex = /[?&]v=([^&]+)/;
+function getUrlId(url) { 
+    const regex = /\/([^/?]+)\?/;
     const match = url.match(regex);
     return match ? match[1] : null;
 }
-
 
 function loadVideo(index) {
     player.cueVideoById({videoId:videoIndexes[index]}); // Update the video source
