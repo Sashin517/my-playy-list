@@ -3,6 +3,7 @@ let player;
 let isPlaying = false;
 
 // Select the buttons by their IDs
+const form = document.getElementById("form");
 const video = document.getElementById("youtube-player");
 const btnLeft = document.getElementById("btn-left");
 const toggleButton = document.getElementById("btn-toggle-play");
@@ -16,7 +17,7 @@ function onYouTubeIframeAPIReady() {
         width:900,
         videoId: "u83VdXAVq08",
         playerVars:{
-            playerinline: 1,
+            playersinline: 0,
             autoplay:1,
             controls:0
         },
@@ -39,7 +40,7 @@ function onPLayerStateChange(event){
     }
 }
 
-const videoIndexes = [
+let videoIndexes = [
     "u83VdXAVq08",
     "ajGo94h0JxE",
     "oqcRmw1YYhU",
@@ -47,6 +48,22 @@ const videoIndexes = [
     "yc-vNb4zLkc",
     "6eyf9MNJvrg"
 ]
+
+form.addEventListener("submit", (e)=>{
+    e.preventDefault();
+
+    let url = document.getElementById('url').value;
+    let id  = getUrlId(url);
+    videoIndexes.push(url);
+    alert(`added to que successfully ${id}`);
+});
+
+function getUrlId(url) {
+    const regex = /[?&]v=([^&]+)/;
+    const match = url.match(regex);
+    return match ? match[1] : null;
+}
+
 
 function loadVideo(index) {
     player.cueVideoById({videoId:videoIndexes[index]}); // Update the video source
