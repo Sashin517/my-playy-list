@@ -16,10 +16,10 @@ function onYouTubeIframeAPIReady() {
         height:500,
         width:900,
         videoId: "u83VdXAVq08",
-        playerVars:{
-            playersinline: 0,
-            autoplay:1,
-            controls:0
+        playerVars: {
+            playsinline: 0,
+            autoplay: 1,
+            controls: 0
         },
         events: {
             onReady: onPlayerReady,
@@ -35,8 +35,9 @@ function onPlayerReady(){
 var done = false;
 
 function onPLayerStateChange(event){
-    if(event.data == YT.PlayerState.PLAYING && !done){
-        done = true;
+    if(event.data == YT.PlayerState.ENDED){
+        currentIndex = (currentIndex + 1 + videoIndexes.length) % videoIndexes.length; // Move to previous video
+        loadVideo(currentIndex); // Load the new video
     }
 }
 
