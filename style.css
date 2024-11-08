@@ -19,14 +19,28 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 50px 50px;     
-}
-.title{
-    margin: 0 0 2vh;
+    margin: 50px 0;     
 }
 #form{
     display: flex;
     justify-content: center;
+    margin: 20px 0;
+}
+#form input[type="url"]{
+    background-color: #434343;
+    border: 2px solid white;
+    color: #f5f5f5;
+    border: none;
+    margin: 0 0 0 0;
+    padding: 0 20px;
+    height: 6.3vh;
+    width: 19vw;
+    border-style: none;
+    border-radius: 30px 0 0 30px;
+    box-shadow: 0px 2px 38px rgba(0, 0, 0, 0.2);
+}
+#form input[type="url"]:focus {
+    border: 2.25px solid white; /* increased border width on focus */
 }
 #form button{
     padding: 10px;
@@ -61,6 +75,9 @@ main h4:hover{
     font-size: 3.01em;
     text-shadow: 0px 10px 30px rgba(255, 255, 255, 0.8);
 }
+#player-container{
+    margin: 2vh 0;
+}
 main iframe{
     filter: url(#blur-and-saturate); /* Apply the SVG filter */
     border-radius: 10px;
@@ -68,7 +85,6 @@ main iframe{
     height: 28.125vw;
 }
 main .navi{
-    margin-top: 2vh;
     z-index: 10;
 }
 .navi button{
@@ -104,9 +120,10 @@ main .navi{
 }
 
 .para{
-    padding: 20px 50px;  
+    padding: 0px 50px;  
 }
 .para p{
+    margin: 0;
     font-size: 1em;
     color: aliceblue;
 }
@@ -117,8 +134,26 @@ main .navi{
     main h4:hover{
         font-size: 1.81em;
     }
+    main h5{
+        font-size: 1.2em;
+    }
+    #form{
+        width: 100%;
+        align-items: center;
+        flex-direction: column;
+    }
+    #form input[type="url"]{
+        border-radius: 5px;
+        height: 43px;
+        width: 70vw;
+    }
+    #form button{
+        margin-top: 20px;
+        border-radius: 30px;
+        padding: 13px;
+    }
     .para{
-        padding: 20px 30px;  
+        padding: 0px 30px;  
     }
     main iframe{
         width: 90vw;

@@ -48,11 +48,15 @@ let videoIndexes = [
 
 form.addEventListener("submit", (e)=>{
     e.preventDefault();
-
-    let url = document.getElementById('url').value;
-    let id  = getUrlId(url);
-    videoIndexes.push(id);
-    alert(`added to que successfully ${id}`);
+    
+    if (document.getElementById('url').value == ''){
+        alert('please enter a yt url')
+    }else{
+        let url = document.getElementById('url').value;
+        let id  = getUrlId(url);
+        videoIndexes.push(id);
+        alert(`added to que successfully ${id}`);
+    }
 });
 
 function getUrlId(url) {
