@@ -50,7 +50,7 @@ form.addEventListener("submit", (e)=>{
 
     let url = document.getElementById('url').value;
     let id  = getUrlId(url);
-    videoIndexes.push(url);
+    videoIndexes.push(id);
     alert(`added to que successfully ${id}`);
 });
 
