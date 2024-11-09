@@ -33,9 +33,6 @@ function onYouTubeIframeAPIReady() {
 
 // Function that runs when the player is ready
 function onPlayerReady(event) {
-    // Start playback automatically
-    event.target.playVideo();
-    isPlaying = true;
     // Get the video title using getVideoData() method
     videoTitles.push(event.target.getVideoData().title);
     playListfunc();
