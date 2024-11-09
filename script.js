@@ -20,8 +20,8 @@ function onYouTubeIframeAPIReady() {
         width:900,
         videoId: videoIndexes[currentIndex],
         playerVars: {
-            playsinline: 0,
-            autoplay: 1,
+            playsinline: 1,
+            autoplay: 0,
             controls: 0
         },
         events: {
@@ -33,6 +33,9 @@ function onYouTubeIframeAPIReady() {
 
 // Function that runs when the player is ready
 function onPlayerReady(event) {
+    // Start playback automatically
+    event.target.playVideo();
+    isPlaying = true;
     // Get the video title using getVideoData() method
     videoTitles.push(event.target.getVideoData().title);
     playListfunc();
@@ -41,9 +44,9 @@ function onPlayerReady(event) {
 function playListfunc(){
     let allTitles = '';
     for(videoTitle of videoTitles){
+        console.log(videoTitle);
         allTitles += videoTitle;
     }
-    console.log(allTitles);
     playList.innerHTML = allTitles;
 }
 
