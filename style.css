@@ -186,6 +186,9 @@ main .navi{
         border-radius: 30px;
         padding: 13px;
     }
+    #play-list{
+        padding: 0px 30px;  
+    }
     .para{
         padding: 0px 30px;  
     }
