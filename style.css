@@ -150,6 +150,7 @@ main .navi{
     color: aliceblue;
     text-align: center;
     display: inline-block;
+    margin: 2vh 0 0 0;
 }
 
 .para{
