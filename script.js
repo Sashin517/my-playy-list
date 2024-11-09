@@ -1,12 +1,13 @@
 let currentIndex = 0;
 let player;
 let isPlaying = true;
-let videoIndexes = ["u83VdXAVq08"];
-let videoTitles = [];
+let videoIndexes = [
+    "u83VdXAVq08",
+    "ajGo94h0JxE"
+]
 
 // Select the buttons by their IDs
 const form = document.getElementById("form");
-const playList = document.getElementById("play-list");
 const video = document.getElementById("youtube-player");
 const btnLeft = document.getElementById("btn-left");
 const toggleButton = document.getElementById("btn-toggle-play");
@@ -20,39 +21,29 @@ function onYouTubeIframeAPIReady() {
         width:900,
         videoId: videoIndexes[currentIndex],
         playerVars: {
-            playsinline: 1,
-            autoplay: 1,
-            controls: 0
+            'playsinline': 0,
+            'controls': 0,
+			'autoplay': 1
         },
         events: {
-            onReady: onPlayerReady,
-            onStateChange:onPLayerStateChange
+            'onReady': onPlayerReady,
+            'onStateChange': onPLayerStateChange
         }
     });
 }
 
-// Function that runs when the player is ready
-function onPlayerReady(event) {
-    // Get the video title using getVideoData() method
-    videoTitles.push(event.target.getVideoData().title);
-    playListfunc();
+function onPlayerReady(event){
+    
+	console.log("ready");
 }
-
-function playListfunc(){
-    let allTitles = '';
-    for(videoTitle of videoTitles){
-        console.log(videoTitle);
-        allTitles += videoTitle;
-    }
-    playList.innerHTML = allTitles;
-}
-
-var done = false;
 
 function onPLayerStateChange(event){
-    if(event.data == YT.PlayerState.ENDED){
-        currentIndex = (currentIndex + 1 + videoIndexes.length) % videoIndexes.length; // Move to previous video
-        loadVideo(currentIndex); // Load the new video
+    
+	if(event.data == YT.PlayerState.ENDED){
+		if(isPlaying) {
+			toggleButton.click();
+		}
+        btnRight.click(); // Move to previous video
     }
 }
 
@@ -76,22 +67,25 @@ function getUrlId(url) {
 }
 
 function loadVideo(index) {
-    player.cueVideoById({videoId:videoIndexes[index]}); // Update the video source
-    player.playVideo();
-    isPlaying = !isPlaying;
+    
+	player.cueVideoById({videoId:videoIndexes[index]}); // Update the video source
+	autoPlay();
 }
 
-//toggle button
-
 toggleButton.addEventListener("click", () => {
+	
     if (isPlaying) {
         icon.classList.replace("fa-pause", "fa-play");
+		
+		if(autoPlayInterval != undefined) {
+			clearInterval(autoPlayInterval);
+		}
         player.pauseVideo();
-        isPlaying = !isPlaying;
+        isPlaying = false;
     } else {
         icon.classList.replace("fa-play", "fa-pause");
         player.playVideo();
-        isPlaying = !isPlaying;
+        isPlaying = true;
     }
     
 });
@@ -99,12 +93,47 @@ toggleButton.addEventListener("click", () => {
 // Add click event listeners to each button
 btnLeft.addEventListener("click", () => {
     currentIndex = (currentIndex - 1 + videoIndexes.length) % videoIndexes.length; // Move to previous video
+	if(isPlaying) {
+			toggleButton.click();
+	}
     loadVideo(currentIndex); // Load the new video
 });
 
 
 
 btnRight.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1 + videoIndexes.length) % videoIndexes.length; // Move to previous video
+    currentIndex = (currentIndex + 1 + videoIndexes.length) % videoIndexes.length; // Move to next video
+	if(isPlaying) {
+			toggleButton.click();
+	}
     loadVideo(currentIndex); // Load the new video
 });
+
+
+var autoPlayInterval;
+
+function checkAutoPlay() {
+	
+	if(player.getPlayerState() != 1 && icon.classList.contains("fa-pause")) {
+		
+		icon.classList.replace("fa-pause", "fa-play");
+		isPlaying = false;
+	
+	} else {
+		
+		if(icon.classList.contains("fa-play")) {
+			
+			icon.classList.replace("fa-play", "fa-pause");
+		}
+		player.playVideo();
+		isPlaying = true;
+		clearInterval(autoPlayInterval);
+		autoPlayInterval = undefined;
+	}
+	
+}
+
+function autoPlay() {
+	
+	autoPlayInterval = setInterval(checkAutoPlay, 3000);
+}
