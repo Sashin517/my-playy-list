@@ -29,14 +29,18 @@
         <div id="player-container">
             <div id="player"></div>
         </div>
+        <!--<div class="rangers">
+            <input type="range" id="volume" value="50" min="0" max="100">
+        </div>-->
         <span class="navi">
             <button id="btn-left"><i class="fa-solid fa-arrow-left previous-btn-icon"></i></button>
             <!--<button><i class="fa-solid fa-play"></i></button>-->
             <button id="btn-toggle-play"><i class="fa-solid fa-pause pause-btn-icon"></i></button>
             <button id="btn-right"><i class="fa-solid fa-arrow-right next-btn-icon"></i></button>
         </span>
+        <p id="play-list"></p>
         <form id="form">
-            <input autocomplete="off" type="url" id="url" placehoder="Enter YouTube Link">
+            <input autocomplete="off" placehoder="Enter YouTube Link" type="url" id="url">
             <button>Add to queue</button>
         </form>
         <div class="para">

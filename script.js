@@ -1,13 +1,12 @@
 let currentIndex = 0;
 let player;
 let isPlaying = true;
-let videoIndexes = [
-    "u83VdXAVq08",
-    "ajGo94h0JxE"
-]
+let videoIndexes = ["u83VdXAVq08"];
+let videoTitles = [];
 
 // Select the buttons by their IDs
 const form = document.getElementById("form");
+const playList = document.getElementById("play-list");
 const video = document.getElementById("youtube-player");
 const btnLeft = document.getElementById("btn-left");
 const toggleButton = document.getElementById("btn-toggle-play");
@@ -32,8 +31,20 @@ function onYouTubeIframeAPIReady() {
     });
 }
 
-function onPlayerReady(){
-    console.log("ready")
+// Function that runs when the player is ready
+function onPlayerReady(event) {
+    // Get the video title using getVideoData() method
+    videoTitles.push(event.target.getVideoData().title);
+    playListfunc();
+}
+
+function playListfunc(){
+    let allTitles = '';
+    for(videoTitle of videoTitles){
+        allTitles += videoTitle;
+    }
+    console.log(allTitles);
+    playList.innerHTML = allTitles;
 }
 
 var done = false;

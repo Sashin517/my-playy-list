@@ -30,7 +30,6 @@ main{
     background-color: #434343;
     border: none;
     outline: none;
-    color: #141414;
     margin: 0 0 0 0;
     padding: 0 20px;
     height: 43.79px;
@@ -38,6 +37,32 @@ main{
     border-style: none;
     border-radius: 30px 0 0 30px;
     box-shadow: 0px 2px 38px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+/* Placeholder styling for most browsers */
+input::placeholder {
+    color: #888;
+    opacity: 1; /* Ensure full opacity on most browsers */
+}
+
+/* Placeholder styling for older Safari versions */
+input::-webkit-input-placeholder {
+    color: #888;
+}
+
+/* Placeholder styling for Firefox */
+input::-moz-placeholder {
+    color: #888;
+}
+
+/* Placeholder styling for Internet Explorer 10+ */
+input:-ms-input-placeholder {
+    color: #888;
+}
+
+/* Placeholder styling for Microsoft Edge */
+input::-ms-input-placeholder {
+    color: #888;
 }
 #form input[type="url"]:focus {
     border: none;
@@ -119,6 +144,12 @@ main .navi{
 
 .pause-btn-icon {
 	padding: 0 3.75px;
+}
+#play-list{
+    font-size:1em;
+    color: aliceblue;
+    text-align: center;
+    display: inline-block;
 }
 
 .para{
