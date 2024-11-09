@@ -21,7 +21,7 @@ function onYouTubeIframeAPIReady() {
         videoId: videoIndexes[currentIndex],
         playerVars: {
             playsinline: 1,
-            autoplay: 0,
+            autoplay: 1,
             controls: 0
         },
         events: {
