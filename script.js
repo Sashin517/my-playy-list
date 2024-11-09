@@ -5,9 +5,11 @@ let videoIndexes = [
     "u83VdXAVq08",
     "ajGo94h0JxE"
 ]
+let videoTitles = [];
 
 // Select the buttons by their IDs
 const form = document.getElementById("form");
+const playList = document.getElementById("play-list");
 const video = document.getElementById("youtube-player");
 const btnLeft = document.getElementById("btn-left");
 const toggleButton = document.getElementById("btn-toggle-play");
