@@ -1,6 +1,10 @@
 let currentIndex = 0;
 let player;
-let isPlaying = false;
+let isPlaying = true;
+let videoIndexes = [
+    "u83VdXAVq08",
+    "ajGo94h0JxE"
+]
 
 // Select the buttons by their IDs
 const form = document.getElementById("form");
@@ -15,7 +19,7 @@ function onYouTubeIframeAPIReady() {
     player = new YT.Player("player", {
         height:500,
         width:900,
-        videoId: "u83VdXAVq08",
+        videoId: videoIndexes[currentIndex],
         playerVars: {
             playsinline: 0,
             autoplay: 1,
@@ -41,11 +45,6 @@ function onPLayerStateChange(event){
     }
 }
 
-let videoIndexes = [
-    "u83VdXAVq08",
-    "ajGo94h0JxE"
-]
-
 form.addEventListener("submit", (e)=>{
     e.preventDefault();
     
@@ -62,12 +61,13 @@ form.addEventListener("submit", (e)=>{
 function getUrlId(url) { 
     const regex = /\/([^/?]+)\?/;
     const match = url.match(regex);
-    return match ? match[1] : null;
+    return match ? match[1] : alert('please enter valid url');
 }
 
 function loadVideo(index) {
     player.cueVideoById({videoId:videoIndexes[index]}); // Update the video source
-    player.playVideo(); // Play the video automatically
+    player.playVideo();
+    isPlaying = !isPlaying;
 }
 
 //toggle button

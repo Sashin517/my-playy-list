@@ -28,9 +28,9 @@ main{
 }
 #form input[type="url"]{
     background-color: #434343;
-    border: 2px solid white;
-    color: #f5f5f5;
     border: none;
+    outline: none;
+    color: #141414;
     margin: 0 0 0 0;
     padding: 0 20px;
     height: 6.3vh;
@@ -40,7 +40,8 @@ main{
     box-shadow: 0px 2px 38px rgba(0, 0, 0, 0.2);
 }
 #form input[type="url"]:focus {
-    border: 2.25px solid white; /* increased border width on focus */
+    border: none;
+    background-color: #FF0033; /* increased border width on focus */
 }
 #form button{
     padding: 10px;
@@ -53,7 +54,8 @@ main{
     text-decoration: none;
 }
 #form button:hover{
-    background-color: #f5f5f5;
+    background-color: #99001f;
+    color: #ffffff;
 }
 main h4{
     color: aliceblue;
