@@ -37,9 +37,14 @@ function onYouTubeIframeAPIReady() {
 // This function retrieves the video title
 function getVideoTitle() {
     const videoData = player.getVideoData();
-    videoTitles.push(videoData.title);
-    playList.innerHTML = playListfunc(); // Update the playlist display
+    
+    // Check if the title already exists in the videoTitles array
+    if (!videoTitles.includes(videoData.title)) {
+        videoTitles.push(videoData.title); // Add the title if it is not already in the array
+        playList.innerHTML = playListfunc(); // Update the playlist display
+    }
 }
+
 
 // Called when the player is ready
 function onPlayerReady(event) {
