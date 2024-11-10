@@ -2,8 +2,8 @@ let currentIndex = 0;
 let player;
 let isPlaying = true;
 let videoIndexes = [
-    "ktFVYXHbKNQ",
-    "XdnJ3oZ8oKc"
+    "XdnJ3oZ8oKc",
+    "ktFVYXHbKNQ"
 ];
 let videoTitles = [];
 
