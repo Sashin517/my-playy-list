@@ -3,7 +3,7 @@ let player;
 let isPlaying = true;
 let videoIndexes = [
     "kXShLPXfWZA",
-    "VyIOn5l_IMI"
+    "Fu2PbiqlrcQ"
 ];
 let videoTitles = [];
 
@@ -70,7 +70,7 @@ function playListfunc() {
     let allTitles = '';
     videoTitles.forEach((videoTitle, index) => {
         console.log(videoTitle);
-        allTitles += `<div>${index+1}| ${videoTitle}</div>`;// Add each title with a line break
+        allTitles += `<div>${index+1}) ${videoTitle}</div>`;// Add each title with a line break
     })
     return allTitles;
 }
