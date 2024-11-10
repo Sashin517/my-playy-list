@@ -68,10 +68,10 @@ function onPlayerStateChange(event) {
 // Function to display all video titles in the playlist
 function playListfunc() {
     let allTitles = '';
-    for (const videoTitle of videoTitles) {
+    videoTitles.forEach((videoTitle, index) => {
         console.log(videoTitle);
-        allTitles += `<div>${videoTitle}</div>`; // Add each title with a line break
-    }
+        allTitles += `<div>${index+1}| ${videoTitle}</div>`;// Add each title with a line break
+    })
     return allTitles;
 }
 
