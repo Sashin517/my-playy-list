@@ -51,6 +51,13 @@ function onPlayerStateChange(event) {
     if (event.data === YT.PlayerState.PLAYING) {
         getVideoTitle(); // Adds title when video starts playing
     }
+    if(event.data == YT.PlayerState.ENDED){
+		if(isPlaying) {
+			toggleButton.click();
+            getVideoTitle();
+		}
+        btnRight.click(); // Move to previous video
+    }
 }
 
 // Function to display all video titles in the playlist
@@ -61,18 +68,6 @@ function playListfunc() {
         allTitles += `<div>${videoTitle}</div>`; // Add each title with a line break
     }
     return allTitles;
-}
-
-
-function onPLayerStateChange(event){
-    
-	if(event.data == YT.PlayerState.ENDED){
-		if(isPlaying) {
-			toggleButton.click();
-            getVideoTitle();
-		}
-        btnRight.click(); // Move to previous video
-    }
 }
 
 form.addEventListener("submit", (e)=>{
