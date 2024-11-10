@@ -34,10 +34,29 @@ function onYouTubeIframeAPIReady() {
     });
 }
 
-function onPlayerReady(event){
-    
-	console.log("ready");
+// Function that runs when the player is ready
+function onPlayerReady(event) {
+    // Get the video title using getVideoData() method
+    videoTitles.push(event.target.getVideoData().title);
+    playListfunc();
 }
+
+function playListfunc(){
+    let allTitles = '';
+    for(videoTitle of videoTitles){
+        console.log(videoTitle);
+        allTitles += videoTitle;
+    }
+    playList.innerHTML = allTitles;
+}
+
+function onPLayerStateChange(event){
+    if(event.data == YT.PlayerState.ENDED){
+        currentIndex = (currentIndex + 1 + videoIndexes.length) % videoIndexes.length; // Move to previous video
+        loadVideo(currentIndex); // Load the new video
+    }
+}
+
 
 function onPLayerStateChange(event){
     
