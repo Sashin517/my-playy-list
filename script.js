@@ -4,7 +4,7 @@ let isPlaying = true;
 let videoIndexes = [
     "u83VdXAVq08",
     "ajGo94h0JxE"
-]
+];
 let videoTitles = [];
 
 // Select the buttons by their IDs
@@ -19,42 +19,48 @@ const btnRight = document.getElementById("btn-right");
 // This function initializes the player after the API is ready
 function onYouTubeIframeAPIReady() {
     player = new YT.Player("player", {
-        height:500,
-        width:900,
+        height: 500,
+        width: 900,
         videoId: videoIndexes[currentIndex],
         playerVars: {
             'playsinline': 0,
             'controls': 0,
-			'autoplay': 1
+            'autoplay': 1
         },
         events: {
             'onReady': onPlayerReady,
-            'onStateChange': onPLayerStateChange
+            'onStateChange': onPlayerStateChange
         }
     });
 }
 
-// Function that runs when the player is ready
+// This function retrieves the video title
+function getVideoTitle() {
+    const videoData = player.getVideoData();
+    videoTitles.push(videoData.title);
+    playList.innerHTML = playListfunc(); // Update the playlist display
+}
+
+// Called when the player is ready
 function onPlayerReady(event) {
-    // Get the video title using getVideoData() method
-    videoTitles.push(event.target.getVideoData().title);
-    playListfunc();
+    getVideoTitle(); // Adds title when the player is ready
 }
 
-function playListfunc(){
+// Called when player state changes, e.g., a new video starts playing
+function onPlayerStateChange(event) {
+    if (event.data === YT.PlayerState.PLAYING) {
+        getVideoTitle(); // Adds title when video starts playing
+    }
+}
+
+// Function to display all video titles in the playlist
+function playListfunc() {
     let allTitles = '';
-    for(videoTitle of videoTitles){
+    for (const videoTitle of videoTitles) {
         console.log(videoTitle);
-        allTitles += videoTitle;
+        allTitles += `<div>${videoTitle}</div>`; // Add each title with a line break
     }
-    playList.innerHTML = allTitles;
-}
-
-function onPLayerStateChange(event){
-    if(event.data == YT.PlayerState.ENDED){
-        currentIndex = (currentIndex + 1 + videoIndexes.length) % videoIndexes.length; // Move to previous video
-        loadVideo(currentIndex); // Load the new video
-    }
+    return allTitles;
 }
 
 
@@ -63,6 +69,7 @@ function onPLayerStateChange(event){
 	if(event.data == YT.PlayerState.ENDED){
 		if(isPlaying) {
 			toggleButton.click();
+            getVideoTitle();
 		}
         btnRight.click(); // Move to previous video
     }
@@ -154,7 +161,6 @@ function checkAutoPlay() {
 	
 }
 
-function autoPlay() {
-	
+function autoPlay() {	
 	autoPlayInterval = setInterval(checkAutoPlay, 3000);
 }
