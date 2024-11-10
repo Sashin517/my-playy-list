@@ -67,6 +67,7 @@ input::-ms-input-placeholder {
     color: #888;
 }
 #form input[type="url"]:focus {
+    color: #ffffff;
     border: none;
     background-color: #FF0033; /* increased border width on focus */
     width: 21vw;
