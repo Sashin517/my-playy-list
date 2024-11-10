@@ -142,7 +142,7 @@ var autoPlayInterval;
 
 function checkAutoPlay() {
 	
-	if(player.getPlayerState() != 1 && icon.classList.contains("fa-pause")) {
+	if(player.getPlayerState() != 1) {
 		
 		icon.classList.replace("fa-pause", "fa-play");
 		isPlaying = false;
