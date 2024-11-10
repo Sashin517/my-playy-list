@@ -45,7 +45,6 @@ function getVideoTitle() {
     }
 }
 
-
 // Called when the player is ready
 function onPlayerReady(event) {
     getVideoTitle(); // Adds title when the player is ready
@@ -54,16 +53,17 @@ function onPlayerReady(event) {
 // Called when player state changes, e.g., a new video starts playing
 function onPlayerStateChange(event) {
     if (event.data === YT.PlayerState.PLAYING) {
-        getVideoTitle(); // Adds title when video starts playing
+        getVideoTitle(); // Adds title when the video starts playing
     }
-    if(event.data == YT.PlayerState.ENDED){
-		if(isPlaying) {
-			toggleButton.click();
-            getVideoTitle();
-		}
-        btnRight.click(); // Move to previous video
+
+    if (event.data === YT.PlayerState.ENDED) {
+        if (isPlaying) {
+            toggleButton.click(); // Toggle play state if isPlaying is true
+        }
+        btnRight.click(); // Move to the next video
     }
 }
+
 
 // Function to display all video titles in the playlist
 function playListfunc() {
