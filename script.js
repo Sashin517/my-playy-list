@@ -143,14 +143,13 @@ var autoPlayInterval;
 function checkAutoPlay() {
 	
 	if(player.getPlayerState() != 1) {
-		
-		icon.classList.replace("fa-pause", "fa-play");
+        if(icon.classList.contains("fa-pause")){
+            icon.classList.replace("fa-pause", "fa-play");
+        }
 		isPlaying = false;
 	
-	} else {
-		
-		if(icon.classList.contains("fa-play")) {
-			
+	} else {		
+		if(icon.classList.contains("fa-play")) {			
 			icon.classList.replace("fa-play", "fa-pause");
 		}
 		player.playVideo();
