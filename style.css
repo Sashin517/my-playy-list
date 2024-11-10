@@ -38,6 +38,7 @@ main{
     border-radius: 30px 0 0 30px;
     box-shadow: 0px 2px 38px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
+    transition: all 0.3s ease;
 }
 /* Placeholder styling for most browsers */
 input::placeholder {
@@ -77,6 +78,7 @@ input::-ms-input-placeholder {
     background-color: #8c8c8c;
     color: none;
     text-decoration: none;
+    transition: all 0.3s ease;
 }
 #form button:hover{
     background-color: #99001f;
@@ -176,11 +178,16 @@ main .navi{
         align-items: center;
         flex-direction: column;
     }
-    #form input[type="url"]{
+    #form input[type="url"] {
         border-radius: 5px;
         height: 43px;
         width: 70vw;
+        transition: width 0.3s ease; /* Adds smooth transition for width */
     }
+    
+    #form input[type="url"]:focus {
+        width: 79vw;
+    }    
     #form button{
         margin-top: 20px;
         border-radius: 30px;
