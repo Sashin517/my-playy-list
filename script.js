@@ -142,11 +142,9 @@ var autoPlayInterval;
 
 function checkAutoPlay() {
 	
-	if(player.getPlayerState() != 1) {
-        if(icon.classList.contains("fa-pause")){
-            icon.classList.replace("fa-pause", "fa-play");
-        }
-		isPlaying = false;
+	if(player.getPlayerState() != 1 && icon.classList.contains("fa-pause")) {
+		icon.classList.replace("fa-pause", "fa-play");
+		isPlaying = false;
 	
 	} else {		
 		if(icon.classList.contains("fa-play")) {			
